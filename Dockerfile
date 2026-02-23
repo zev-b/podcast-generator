@@ -1,10 +1,11 @@
-FROM python:3.10-slim
+FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
-    git && \
-    rm -rf /var/lib/apt/lists/*
+    python3.10 \
+    python3-pip \
+    git
 
-RUN pip install --no-cache-dir --break-system-packages pyYAML
+RUN pip3 install pyYAML
 
 COPY feed.py /usr/bin/feed.py
 
